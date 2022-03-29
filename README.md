@@ -1,4 +1,4 @@
-# El viaje de Marco (Veronika Esparragoza)
+# El viaje de Marco
 ## Introducción
 > Marco, de los Apeninos a los Andes es un relato breve de ficción incluido por Edmundo de Amicis en su novela Corazón, publicada en 1886. Narra la historia del extenso y complicado viaje de un niño de trece años, Marco, desde Italia hacia Argentina, en busca de su madre, que había emigrado a aquel país sudamericano dos años antes. [Fuente: Wikipedia](https://es.wikipedia.org/wiki/Marco,_de_los_Apeninos_a_los_Andes)
 

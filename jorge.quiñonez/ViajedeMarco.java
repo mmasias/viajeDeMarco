@@ -3,26 +3,47 @@ import java.text.DecimalFormat;
 public class ViajedeMarco{
     public static void main(String[] args){
 
-        int DistanciaDeLaMadre, Dia;
-        double VelocidadDeMarco, TiempoDeMarco, ProbabilidadDeLluvia, ProbabilidadDelMono, DistanciaTotalDeMarco, DistanciaRecorridaPorMarco, DistanciaEntreEllos;
+        int Dia;
+        double VelocidadDeMarco, TiempoDeMarco, DistanciaTotalDeMarco, DistanciaRecorridaPorMarco, DistanciaEntreEllos;
+        double ProbabilidadDeLluvia, ProbabilidadDelMono, ProbabilidadDeLluviaMama;
+        double VelocidadDeLaMadre, TiempoDeLaMadre, DistanciaTotalDeLaMadre, DistanciaRecorridaPorLaMadre;
+        double ProbabilidadDeIndicacion;
 
         System.out.println("Marco inicia su viaje en busca de su madre.");
         System.out.println("La madre de Marco se encuentra a 350Km de distancia.");
         System.out.println("");
 
         Dia = 0;
-        DistanciaDeLaMadre = 350;
+        DistanciaTotalDeLaMadre = 350;
         DistanciaTotalDeMarco = 0;
-        DistanciaEntreEllos = DistanciaDeLaMadre - DistanciaTotalDeMarco;
+        DistanciaEntreEllos = DistanciaTotalDeLaMadre - DistanciaTotalDeMarco;
 
         System.out.println("DIARIO DEL VIAJE DE MARCO");
-        System.out.println("------------------------------------");
+        System.out.println("====================================");
         System.out.println("");
         
         while(DistanciaEntreEllos > 0){
             Dia = Dia + 1;
-            DistanciaDeLaMadre = DistanciaDeLaMadre + 80;
 
+    //La madre---------------------------------------------------
+            VelocidadDeLaMadre = (Math.random()*(9-6))+6;
+            TiempoDeLaMadre = (Math.random()*(9-6))+6;
+
+            ProbabilidadDeLluviaMama = (Math.random()*(100-0)+0);
+
+            if(ProbabilidadDeLluviaMama <=10){
+                VelocidadDeLaMadre = VelocidadDeLaMadre * 0.50;
+            }
+            else if (ProbabilidadDeLluviaMama <=40){
+                VelocidadDeLaMadre = VelocidadDeLaMadre *0.75;
+            }
+
+
+            DistanciaRecorridaPorLaMadre = TiempoDeLaMadre * VelocidadDeLaMadre;
+            
+            DistanciaTotalDeLaMadre = DistanciaTotalDeLaMadre + DistanciaRecorridaPorLaMadre;
+
+    //Marco-----------------------------------------------------
             VelocidadDeMarco = (Math.random()*(15-10))+10;
             TiempoDeMarco = (Math.random()*(10-8))+8;
 
@@ -52,12 +73,18 @@ public class ViajedeMarco{
             
             DistanciaTotalDeMarco = DistanciaTotalDeMarco + DistanciaRecorridaPorMarco;
 
-            DistanciaEntreEllos = DistanciaDeLaMadre - DistanciaTotalDeMarco;
+            DistanciaEntreEllos = DistanciaTotalDeLaMadre - DistanciaTotalDeMarco;
+            
+            ProbabilidadDeIndicacion = (Math.random()*(100-0)+0);
+            
 
+//Impresiones de datos-----------------------------------------------------
+        
+    //Impresiones para Marco-----------------------------------------------
             System.out.println("DIA " + Dia);
             System.out.println("");
 
-            if(ProbabilidadDeLluvia <=10){
+            if(ProbabilidadDeLluvia <=10){      
                 System.out.println("Este dia llovio muy fuerte");
                 System.out.println("");
             }else if(ProbabilidadDeLluvia <=40){
@@ -86,17 +113,37 @@ public class ViajedeMarco{
             System.out.println("Pude avanzar " + df.format(TiempoDeMarco) + " horas a " + df.format(VelocidadDeMarco) + "Km/h");
             System.out.println("Al final del dia logre recorrer " + df.format(DistanciaRecorridaPorMarco) + "Km" );
             System.out.println("");
-
-            if(DistanciaDeLaMadre > DistanciaTotalDeMarco){
-               System.out.println("Mi madre avanzo 80Km");
-               System.out.println(""); 
-               System.out.println("La distancia entre nosotros es de " + df.format(DistanciaEntreEllos) + "Km");
-            }
-            
             System.out.println("--------------------------------------------------------");
+            System.out.println("");
+
+    //Impresiones para la madre--------------------------------------------
+        if(ProbabilidadDeLluviaMama <=10){      
+            System.out.println("A mi madre le ha llovido muy fuerte");
+            System.out.println("");
+        }else if(ProbabilidadDeLluviaMama <=40){
+            System.out.println("A mi madre le ha llovio un poco");
+            System.out.println("");
+        }else{
+            System.out.println("Fue un buen dia para mi madre");
+            System.out.println("");
+        }
+
+        DecimalFormat df2 = new DecimalFormat("0.00");
+
+        System.out.println("Hoy mi madre avanzo " + df2.format(TiempoDeLaMadre) + " horas a " + df2.format(VelocidadDeLaMadre) + "Km/h");
+        System.out.println("Al final del dia mi madre recorrio " + df2.format(DistanciaRecorridaPorLaMadre) + "Km" );
+        System.out.println("");
+
+        if(DistanciaTotalDeLaMadre > DistanciaTotalDeMarco){
+            System.out.println(""); 
+            System.out.println("La distancia entre nosotros es de " + df2.format(DistanciaEntreEllos) + "Km");
+        }
+        
+        System.out.println("========================================================");
 
         }
         System.out.println("Logre alcanzar a mi madre, estoy muy feliz");
         System.out.println("FIN DEL DIARIO");
+        System.out.println("");
     }
 }

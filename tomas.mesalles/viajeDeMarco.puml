@@ -1,0 +1,53 @@
+@startuml Viaje de Marco
+:Marco sale a recorrer 350 km;
+
+repeat
+:Empieza un nuevo día;
+
+:Marco se determina a caminar por un plazo de entre 8 y 10 horas;
+:Marco se determina a viajar a un ritmo de un valor entre 10 y 15 km/h;
+
+switch (Clima)
+    case (despejado)
+    :Velocidad de Marco sigue normal;
+    case (Lluvia ligera)
+    :Velocidad de Marco es reducida por 75%;
+    case (Lluvia fuerte)
+    :Velocidad de Marco es reducida al 25%;
+endswitch
+
+switch (Mono Amedio)
+    case (Sin problemas)
+    :La velocidad de Marco sigue normal;
+    case (El mono se cansa)
+    :La velocidad de Marco es reducida por 10%;
+    case (El mono se escapa)
+    :Marco pierde 2 horas de viaje;
+    case (El mono se cansa y escapa)
+    :La velocidad de Marco es reducida por 10%, y pierde 2 horas de viaje;
+endswitch
+
+:La madre se aleja entre 6 y 9 km/h cada día;
+
+switch (madre)
+    case (Clima despejado)
+    :La velocidad de la madre continua normal;
+    case (Lluvia ligera)
+    :La velocidad de la madre es reducida por 25%;
+    case (Lluvia fuerte)
+    :La velocidad de la madre es reducida por 50%;
+endswitch
+
+if (Distancia entre Marco y madre es < 50km) then (sí) 
+    if (Calcula 50% probabilidad) then (sí)
+    :Marco corre 25 km adicionales;
+    else (no)
+    endif
+else (no)
+endif
+
+:Termina el día;
+repeat while (Distancia entre Marco y madre) is (> 0 km)
+
+:Marco encuentra a su madre;
+@enduml

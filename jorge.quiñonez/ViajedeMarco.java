@@ -74,8 +74,13 @@ public class ViajedeMarco{
             DistanciaTotalDeMarco = DistanciaTotalDeMarco + DistanciaRecorridaPorMarco;
 
             DistanciaEntreEllos = DistanciaTotalDeLaMadre - DistanciaTotalDeMarco;
-            
+
             ProbabilidadDeIndicacion = (Math.random()*(100-0)+0);
+            
+            if(DistanciaEntreEllos < 50 && ProbabilidadDeIndicacion <=50){
+                DistanciaEntreEllos = DistanciaEntreEllos + 25;
+            }
+            
             
 
 //Impresiones de datos-----------------------------------------------------
@@ -117,30 +122,33 @@ public class ViajedeMarco{
             System.out.println("");
 
     //Impresiones para la madre--------------------------------------------
-        if(ProbabilidadDeLluviaMama <=10){      
-            System.out.println("A mi madre le ha llovido muy fuerte");
+            if(ProbabilidadDeLluviaMama <=10){      
+                System.out.println("A mi madre le ha llovido muy fuerte");
+                System.out.println("");
+            }else if(ProbabilidadDeLluviaMama <=40){
+                System.out.println("A mi madre le ha llovio un poco");
+                System.out.println("");
+            }else{
+                System.out.println("Fue un buen dia para mi madre");
+                System.out.println("");
+            }
+
+            DecimalFormat df2 = new DecimalFormat("0.00");
+
+            System.out.println("Hoy mi madre avanzo " + df2.format(TiempoDeLaMadre) + " horas a " + df2.format(VelocidadDeLaMadre) + "Km/h");
+            System.out.println("Al final del dia mi madre recorrio " + df2.format(DistanciaRecorridaPorLaMadre) + "Km" );
             System.out.println("");
-        }else if(ProbabilidadDeLluviaMama <=40){
-            System.out.println("A mi madre le ha llovio un poco");
-            System.out.println("");
-        }else{
-            System.out.println("Fue un buen dia para mi madre");
-            System.out.println("");
-        }
 
-        DecimalFormat df2 = new DecimalFormat("0.00");
+            if(DistanciaTotalDeLaMadre > DistanciaTotalDeMarco){
+                System.out.println(""); 
+                System.out.println("La distancia entre nosotros es de " + df2.format(DistanciaEntreEllos) + "Km");
+            }
 
-        System.out.println("Hoy mi madre avanzo " + df2.format(TiempoDeLaMadre) + " horas a " + df2.format(VelocidadDeLaMadre) + "Km/h");
-        System.out.println("Al final del dia mi madre recorrio " + df2.format(DistanciaRecorridaPorLaMadre) + "Km" );
-        System.out.println("");
+            if(DistanciaEntreEllos < 50 && ProbabilidadDeIndicacion >=50){
+                System.out.println("Marco corrió 25Km mas porque una persona le dijo que vio a su madre");
+            }
 
-        if(DistanciaTotalDeLaMadre > DistanciaTotalDeMarco){
-            System.out.println(""); 
-            System.out.println("La distancia entre nosotros es de " + df2.format(DistanciaEntreEllos) + "Km");
-        }
-        
-        System.out.println("========================================================");
-
+            System.out.println("========================================================");
         }
         System.out.println("Logre alcanzar a mi madre, estoy muy feliz");
         System.out.println("FIN DEL DIARIO");

@@ -77,8 +77,8 @@ public class ViajedeMarco{
 
             ProbabilidadDeIndicacion = (Math.random()*(100-0)+0);
             
-            if(DistanciaEntreEllos < 50 && ProbabilidadDeIndicacion <=50){
-                DistanciaEntreEllos = DistanciaEntreEllos + 25;
+            if(DistanciaEntreEllos < 50 && ProbabilidadDeIndicacion >=50){
+                DistanciaEntreEllos = DistanciaEntreEllos - 25;
             }
             
             
@@ -139,14 +139,14 @@ public class ViajedeMarco{
             System.out.println("Al final del dia mi madre recorrio " + df2.format(DistanciaRecorridaPorLaMadre) + "Km" );
             System.out.println("");
 
-            if(DistanciaTotalDeLaMadre > DistanciaTotalDeMarco){
-                System.out.println(""); 
-                System.out.println("La distancia entre nosotros es de " + df2.format(DistanciaEntreEllos) + "Km");
-            }
-
             if(DistanciaEntreEllos < 50 && ProbabilidadDeIndicacion >=50){
                 System.out.println("Marco corrió 25Km mas porque una persona le dijo que vio a su madre");
             }
+
+            if(DistanciaTotalDeLaMadre > DistanciaTotalDeMarco || DistanciaEntreEllos >=0){
+                System.out.println(""); 
+                System.out.println("La distancia entre nosotros es de " + df2.format(DistanciaEntreEllos) + "Km");
+            }          
 
             System.out.println("========================================================");
         }

@@ -1,0 +1,34 @@
+@startuml
+start
+    :Marco está en busca de su madre;
+    :La madre de Marco está a una distancia inicial de 350km;
+repeat :Comienza un nuevo día;
+    :Marco tiene una velocidad media diara entre 10-15km/h;
+    :Marco camina entre 8-10 horas de trayecto diario;
+    :La madre de Marco tiene una velocidad media diaria de 6-9km/h;
+    :La madre de Marco avanza en su carruaje entre 6-9 horas cada día;
+
+    switch (Estado del clima)
+        case ( Lluvia fuerte )
+            :La velocidad de Marco se reduce al 25%;
+            :La velocidad del carruaje de la madre se reduce un 25%;
+        case ( Lluvia normal ) 
+            :La velocidad de Marco se reduce en un 25%;
+            :La velocidad del carruaje de la madre se reduce un 50%;
+        case ( Buen clima )
+            :No hay cambios;
+    endswitch
+    if (¿El mono Amedio se cansa?) then
+        :La velocidad de Marco se reduce en un 10%;
+    endif
+    if (¿El mono Amedio se escapa?) then
+        :Marco pierde 2 horas del día;
+    endif
+    if (¿La distancia entre Marco y su madre es menor a 50KM?) then
+        if (¿Marco encuentra a laguien que le dice que vio a su madre? (50% probable)) then
+            :Marco avanza 25KM adicionales en el día;
+        endif
+    endif
+repeat while (¿Marco ha encontrado a su madre?) is (No) not (Sí)
+stop
+@enduml
